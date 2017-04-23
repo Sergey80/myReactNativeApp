@@ -26,4 +26,14 @@ So far it is simple (I play with Andorid for now)
 # Screen
 
 ![Sample app screen shot](doc/screen.png?raw=true "Sample app screen shot")
+
+# Run On Real device
+
+1. For Android on Linux
+ - https://facebook.github.io/react-native/docs/running-on-device.html (official doc)
+ - https://askubuntu.com/questions/461729/ubuntu-is-not-detecting-my-android-device (linux)
+ - Depending on you model: try play with "Settings > Additional settings > Developer options" (like turn on Debug Mode, Turn Off optimization, etc)
+ - `cd` to your app, then `react-native run-android` (be ready that on real device it could not work by some weird reason. Then try again :) )
+
+ 
   
