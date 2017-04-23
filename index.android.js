@@ -7,47 +7,34 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View
+  Navigator
 } from 'react-native';
 
-export default class myReactNativeApp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import UserList from './app/components/user/UserList'
+import UserDetails from './app/components/user/UserDetails'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+export default class myReactNativeApp extends Component {
+
+    renderScene(route, navigator) {
+        switch (route.id) {
+            case 'UserList' :
+                return (<UserList navigator={navigator} title="UserList" />);
+            case 'UserDetails' :
+                return (<UserDetails user={route.user} navigator={navigator} title="UserDetails" />);
+        }
+    }
+
+    render() {
+        return (
+            <Navigator
+                initialRoute={{id: "UserList"}}
+                renderScene={this.renderScene}
+                configureScreen={
+                    (route, routeStack) => Navigator.SceneConfigs.FloatFromBottom
+                }
+            />
+        );
+    }
+}
 
 AppRegistry.registerComponent('myReactNativeApp', () => myReactNativeApp);

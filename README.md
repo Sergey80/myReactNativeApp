@@ -22,4 +22,8 @@ So far it is simple (I play with Andorid for now)
   
 # Nice tutorial to follow
 1. https://www.youtube.com/watch?v=mkualZPRZCs
+
+# Screen
+
+![Sample app screen shot](doc/screen.png?raw=true "Sample app screen shot")
   
