@@ -1,5 +1,24 @@
 # myReactNativeApp
 
+# Motivation (feel free to skip)
+Me, personally I would be happier if I could use `Scala` as language for building Native Mobile App.
+
+And I could if was interested to create an app only for Andorid,
+but that is not a case - I need both. 
+
+In any event, with tools like `TypeScript` and `babeljs.io` and good IDE help, things are not that dramatically bad,
+so it make sense to try it out.
+
+And `JS` and `React` `JS`/`Native` by far has many features that are ready to work out of the box, with great/large community.
+For now it is much closer to `real world`.
+So be it.
+
+- Q: Why not `Native Script` with `Angular` and `Typescript`?
+- A: Good question. I still hope to reuse `React` way of building for the Web,
+with `scalajs-react` (when day comes :) ).
+
+
+# Intention
 The intention is:
 - to play with / try ReactNative myself, put some notes so it could be useful and reusablef or me and for others (optional)
 - initially the app was created from `webstorm` template
@@ -13,15 +32,21 @@ The intention is:
 - `android avd` - to run virtual device (where our app will appear when we start it)
 
 # To run
-So far it is simple (I play with Andorid for now)
-1. Make sure your pnone sumulator is on
-2. Run app from IDE
+So far it is simple (I play with Android for now)
+1. Make sure your phone simulator is on
+2. Run app from IDE (advantage is to be able to debug from IDE)
 3. To debug: 
   - https://blog.jetbrains.com/webstorm/2016/12/developing-mobile-apps-with-react-native-in-webstorm/
   - enable Hot Reloading: On virtual device: Ctrl + M, select "Hot Reloading", so now every time when we change some code the device will auto update the changes (no need pressing double R (RR) all the t
+4. Alternative way to start, from Terminal:
+ - `android avd` (runs your virtual device)
+ - `react-native start` (packager)
+ - `react-native run-android` (will run your app in the emulator or on real device)
+ 
   
 # Nice tutorial to follow
-1. https://www.youtube.com/watch?v=mkualZPRZCs
+1. https://www.youtube.com/watch?v=mkualZPRZCs (to start)
+2. https://youtu.be/WrDwSRu8oz8?t=60 (Redux, best I could find!)
 
 # Screen
 
@@ -36,4 +61,15 @@ So far it is simple (I play with Andorid for now)
  - `cd` to your app, then `react-native run-android` (be ready that on real device it could not work by some weird reason. Then try again :) )
 
  
+# Redux (because 'our code must manage more state than ever before')
+ To read: 
+    - http://redux.js.org/docs/introduction/
+    - https://medium.com/@bosung90/how-to-structure-your-react-native-application-using-redux-aec1677b76ca
+    
+ So to install redux dependencies:
+ - npm install --save react-redux
+ - npm install --save redux 
+ - npm install --save redux-logger
+ - npm install --save redux-thunk (for async calls)
+ (that all will modify our package.json)
   

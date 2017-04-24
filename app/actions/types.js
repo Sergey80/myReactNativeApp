@@ -1,0 +1,1 @@
+export const SET_SEARCHED_USERS = 'SET_SEARCHED_USERS';

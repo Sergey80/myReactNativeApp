@@ -4,19 +4,39 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-    AppRegistry,
-    Navigator
-} from 'react-native';
+// -- redux --
 
-// import Component1 from './app/components/Component1/Component1'
-// import Component2 from './app/components/Component2/Component2'
-// import Component3 from './app/components/Component3/Component3'
-// import Component4 from './app/components/Component4/Component4'
+import {Provider} from 'react-redux'
+import {createStore, applyMiddleware, combineReducers, compose} from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import {createLogger} from 'redux-logger'
+
+import reducer from './app/reducers'
+
+const loggerMiddleware = createLogger({predicate: (getState, action) => {__DEV__}});
+
+function configureStore(initialState) {
+    const enhancer = compose(
+        applyMiddleware(
+            thunkMiddleware,
+            loggerMiddleware,
+        )
+    );
+    return createStore(reducer, initialState, enhancer);
+}
+
+const store = configureStore({});
+
+// ---
 
 import UserList from './app/components/user/UserList'
 import UserDetails from './app/components/user/UserDetails'
+
+import React, { Component } from 'react';
+import {
+    AppRegistry,
+    Navigator,
+} from 'react-native';
 
 export default class myReactNativeApp extends Component {
 
@@ -41,5 +61,11 @@ export default class myReactNativeApp extends Component {
         );
     }
 }
+
+// const App = ()=> (     // it is a root for our app, and it connects us to redux
+//     <Provider store={store}>
+//         <UsersSearch/>
+//     </Provider>
+// );
 
 AppRegistry.registerComponent('myReactNativeApp', () => myReactNativeApp);
